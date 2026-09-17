@@ -1,7 +1,6 @@
 📄 DocQuery AI
 
 
-
 "AI-powered PDF question answering using Retrieval-Augmented Generation (RAG)"
 
 
@@ -38,53 +37,7 @@ The application uses semantic embeddings to retrieve relevant sections of the do
 * Cached embeddings for improved performance
 
 
-
-🧠 How It Works
-
-
-
-PDF Upload
-
-&#x20;   ↓
-
-Text Extraction
-
-&#x20;   ↓
-
-Text Chunking
-
-&#x20;   ↓
-
-Gemini Embeddings
-
-&#x20;   ↓
-
-User Question
-
-&#x20;   ↓
-
-Question Embedding
-
-&#x20;   ↓
-
-Cosine Similarity Retrieval
-
-&#x20;   ↓
-
-Relevant PDF Chunks
-
-&#x20;   ↓
-
-Gemini
-
-&#x20;   ↓
-
-Grounded Answer
-
-
-
 The application follows a basic "Retrieval-Augmented Generation (RAG)" pipeline:
-
 
 
 1. The uploaded PDF is converted into text.
@@ -106,7 +59,6 @@ The application follows a basic "Retrieval-Augmented Generation (RAG)" pipeline:
 🛠️ Tech Stack
 
 
-
 * Python
 
 * Streamlit
@@ -121,13 +73,6 @@ The application follows a basic "Retrieval-Augmented Generation (RAG)" pipeline:
 
 * python-dotenv
 
-
-
-🎯 Project Objective
-
-
-
-This project was built to gain practical experience with Generative AI, embeddings, semantic search, and Retrieval-Augmented Generation (RAG) by developing an end-to-end document question-answering application.
 
 
 
