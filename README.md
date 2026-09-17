@@ -1,4 +1,5 @@
 📄 DocQuery AI
+
 "AI-powered PDF question answering using Retrieval-Augmented Generation (RAG)"
 
 DocQuery AI allows users to upload a PDF and ask questions about its content. The application uses semantic embeddings to retrieve relevant sections of the document and Gemini to generate answers grounded in the retrieved content.
