@@ -26,8 +26,29 @@ if "answer" not in st.session_state:
 
 
 # Page setup
+# Page setup
 st.title("📄 DocQuery AI")
 st.write("Ask questions about your PDF documents.")
+
+with st.sidebar:
+    st.header("📄 DocQuery AI")
+
+    st.write(
+        "Ask questions about your PDF using "
+        "semantic retrieval and Gemini."
+    )
+
+    st.divider()
+
+    st.subheader("How it works")
+    st.write("1. Upload a PDF")
+    st.write("2. Extract & chunk text")
+    st.write("3. Find relevant sections")
+    st.write("4. Generate a grounded answer")
+
+    st.divider()
+
+    st.caption("Built with Python • Gemini • Streamlit")
 
 uploaded_file = st.file_uploader(
     "Upload a PDF",
