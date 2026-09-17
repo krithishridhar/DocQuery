@@ -1,0 +1,10 @@
+AI-PDF-Query-Assistant/
+│
+├── app.py
+├── ask_pdf.py
+├── README.md
+├── requirements.txt   ← create it HERE
+├── .gitignore
+├── .env
+├── imp.pdf
+└── venv/
