@@ -1,78 +1,29 @@
-📄 DocQuery AI
+# 📄 DocQuery AI
 
+**AI-powered PDF question answering using Retrieval-Augmented Generation (RAG).**
 
-"AI-powered PDF question answering using Retrieval-Augmented Generation (RAG)"
+## 🚀 Live Demo
 
-
-Live Demo
-
-🚀 [Try DocQuery AI](https://docqueryai2.streamlit.app/)
+[Try DocQuery AI](https://docqueryai2.streamlit.app/)
 
 ![DocQuery AI Screenshot](screenshot.png)
 
-DocQuery AI is a Retrieval-Augmented Generation (RAG) application that allows users to upload a PDF and ask questions about its contents.
-The application uses semantic embeddings to retrieve relevant sections of the document and Gemini to generate answers grounded in the retrieved content.
+DocQuery AI lets users upload a PDF and ask questions about its contents. It uses **Gemini embeddings, semantic retrieval, and Gemini** to generate answers grounded in the document.
 
+## ✨ Features
 
+* 📄 PDF upload and text extraction with PyMuPDF
+* 🔍 Overlapping text chunking and semantic search
+* 🧠 Gemini embeddings with cosine-similarity retrieval
+* 📚 Source-page and similarity-score display
+* 💬 PDF-grounded AI answers
+* ⚡ Cached embeddings for improved performance
+* 🌐 Streamlit web interface
 
-✨ Features
+## 🔄 RAG Pipeline
 
+**PDF → Text Extraction → Chunking → Embeddings → Semantic Retrieval → Gemini → Answer**
 
-* Upload and process PDF documents
+## 🛠️ Tech Stack
 
-* Extract text using PyMuPDF
-
-* Split documents into overlapping chunks
-
-* Generate semantic embeddings using Gemini
-
-* Retrieve relevant sections using cosine similarity
-
-* Display source pages and similarity scores
-
-* Generate PDF-grounded answers using Gemini
-
-* Streamlit-based web interface
-
-* Cached embeddings for improved performance
-
-
-The application follows a basic "Retrieval-Augmented Generation (RAG)" pipeline:
-
-
-1. The uploaded PDF is converted into text.
-
-2. The text is divided into overlapping chunks.
-
-3\. Each chunk is converted into an embedding using `gemini-embedding-001`.
-
-4. The user's question is also converted into an embedding.
-
-5. Cosine similarity is used to identify the most relevant chunks.
-
-6. The retrieved content is provided to Gemini as context.
-
-7. Gemini generates an answer using the retrieved PDF content.
-
-
-
-🛠️ Tech Stack
-
-
-* Python
-
-* Streamlit
-
-* Google Gemini API
-
-* Gemini Embeddings
-
-* PyMuPDF
-
-* NumPy
-
-* python-dotenv
-
-
-
-
+**Python · Streamlit · Google Gemini API · PyMuPDF · NumPy · python-dotenv**
