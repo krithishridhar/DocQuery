@@ -1,3 +1,4 @@
+
 import os
 import re
 
@@ -27,10 +28,31 @@ if "answer" not in st.session_state:
 
 # Page setup
 st.title("📄 DocQuery AI")
-st.write("Ask questions about your PDF documents.")
+st.write("Ask questions. Get answers. From your documents.")
+
+with st.sidebar:
+    st.header("📄 DocQuery AI")
+
+    st.write(
+        "Ask questions about your PDF using "
+        "semantic retrieval and Gemini."
+    )
+
+    st.divider()
+
+    st.subheader("How it works")
+    st.write("1. Upload a PDF")
+    st.write("2. Extract & chunk text")
+    st.write("3. Find relevant sections")
+    st.write("4. Generate a grounded answer")
+
+    st.divider()
+
+    st.caption("Built with Python • Gemini • Streamlit")
+
 
 uploaded_file = st.file_uploader(
-    "Upload a PDF",
+    "📎 Upload a PDF",
     type=["pdf"]
 )
 
@@ -146,20 +168,13 @@ if uploaded_file:
     pdf = pymupdf.open(
         stream=pdf_bytes,
         filetype="pdf"
-    )
-
-    st.write(f"Pages: {len(pdf)}")
-
+)
     text = ""
 
     for page in pdf:
         text += page.get_text()
 
-    st.write(
-        f"Characters extracted: {len(text)}"
-    )
-
-    chunks = create_chunks(pdf)
+        chunks = create_chunks(pdf)
 
     if not chunks:
         st.error(
@@ -168,9 +183,17 @@ if uploaded_file:
         )
         st.stop()
 
-    st.write(
-        f"Chunks created: {len(chunks)}"
-    )
+    # PDF statistics
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric("Pages", len(pdf))
+
+    with col2:
+        st.metric("Characters", f"{len(text):,}")
+
+    with col3:
+        st.metric("Chunks", len(chunks))
 
     chunks = create_embeddings(chunks)
 
@@ -185,8 +208,10 @@ if uploaded_file:
             height=300
         )
 
+    st.subheader("💬 Ask your document")
+
     question = st.text_input(
-        "Ask a question about your PDF:",
+        "Enter your question:",
         placeholder="e.g. What are the two types of inductive bias?",
         key="question"
     )
@@ -214,17 +239,18 @@ if uploaded_file:
 
         else:
 
-            st.subheader("📚 Relevant Sources")
+            with st.expander("📚 View relevant sources"):
 
-            for chunk in relevant_chunks:
-                st.write(
-                    f"Page {chunk['page']} "
-                    f"(similarity: {chunk['score']:.3f})"
-                )
+                for chunk in relevant_chunks:
 
-                st.text(
-                    chunk["text"][:500]
-                )
+                    st.write(
+                        f"**Page {chunk['page']}** "
+                        f"(similarity: {chunk['score']:.3f})"
+                    )
+
+                    st.text(
+                        chunk["text"][:500]
+                    )
 
             context = ""
 
@@ -257,7 +283,7 @@ User question:
 {question}
 """
 
-            if st.button("Generate Answer"):
+            if st.button("✨ Generate Answer"):
 
                 with st.spinner("Generating answer..."):
 
@@ -273,8 +299,9 @@ User question:
                     except Exception:
 
                         st.error(
-                            "Sorry, I couldn't generate an answer "
-                            "right now. Please try again later."
+                            "The AI service could not generate an answer "
+                            "right now. Please check your API quota "
+                            "or try again later."
                         )
 
             if st.session_state.answer:
