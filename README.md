@@ -127,7 +127,7 @@ The application follows a basic "Retrieval-Augmented Generation (RAG)" pipeline:
 
 
 
-This project was built to gain practical experience with \*\*Generative AI, embeddings, semantic search, and Retrieval-Augmented Generation (RAG)\*\* by developing an end-to-end document question-answering application.
+This project was built to gain practical experience with Generative AI, embeddings, semantic search, and Retrieval-Augmented Generation (RAG) by developing an end-to-end document question-answering application.
 
 
 
